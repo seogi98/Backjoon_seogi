@@ -11,9 +11,6 @@ jobs: # 실제 실행될 내용
   build:
     runs-on: ubuntu-latest # 빌드 환경
     steps:
-    - name: configLongestFile # 3) 파일 최대 길이 늘려주기
-      run: |
-        git config --system core.longpaths true
     - uses: actions/checkout@v3 # checkout
     - name: Set up Python 3.10 
       uses: actions/setup-python@v3 # setup-python
@@ -28,9 +25,9 @@ jobs: # 실제 실행될 내용
         python update.py
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
-        git config --system core.longpaths true
         git config --global user.name 'seogi98' # 유저명
         git config --global user.email 'seogi9898@gmail.com' # 유저 이메일
+        git config --system core.longpaths true
         git add -A
         git commit -am "auto update README.md" # 커밋 메시지
     - name: Push changes # 4) 메인에 푸시
