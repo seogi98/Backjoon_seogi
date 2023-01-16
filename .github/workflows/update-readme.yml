@@ -25,6 +25,7 @@ jobs: # 실제 실행될 내용
         python update.py
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
+        sudo chown -R ubuntu:ubuntu ubuntu
         git config --system --unset credential.helper
         git config --global user.name 'seogi98' # 유저명
         git config --global user.email 'seogi9898@gmail.com' # 유저 이메일
