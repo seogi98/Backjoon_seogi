@@ -18,7 +18,6 @@ jobs: # 실제 실행될 내용
         python-version: "3.10" # 3.10버전 파이썬 사용
     - name: Install dependencies # 1) 스크립트에 필요한 dependency 설치
       run: |
-        git config --system core.longpaths true
         python -m pip install --upgrade pip
         pip install python-leetcode 
     - name: Run update.py # 2) update.py 실행
@@ -26,6 +25,7 @@ jobs: # 실제 실행될 내용
         python update.py
     - name: Commit changes # 3) 추가된 파일 commit
       run: |
+        git config --system core.longpaths true
         git config --global user.name 'seogi98' # 유저명
         git config --global user.email 'seogi9898@gmail.com' # 유저 이메일
         git add -A
